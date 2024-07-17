@@ -9,7 +9,7 @@ public class test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // GitHub—p‚É•ÒW‚µ‚½‚æI
     }
 
     // Update is called once per frame
