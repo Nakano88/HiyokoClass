@@ -9,6 +9,7 @@ public class Duck : MonoBehaviour
     [SerializeField] Rigidbody2D rb2D;
     [SerializeField] float upForce;
     [SerializeField] Score score;
+    [SerializeField] AudioSource audioSource_Jump;
 
     // Update is called once per frame
     void Update()
@@ -22,6 +23,9 @@ public class Duck : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb2D.velocity = new Vector2(0f, upForce);
+
+            //Jump‚Ì‰¹
+            audioSource_Jump.PlayOneShot(audioSource_Jump.clip);
         }        
     }
 
