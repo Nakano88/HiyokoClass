@@ -10,6 +10,8 @@ public class Duck : MonoBehaviour
     [SerializeField] float upForce;
     [SerializeField] Score score;
     [SerializeField] AudioSource audioSource_Jump;
+    [SerializeField] AudioSource audioSource_Clash;
+    [SerializeField] AudioSource audioSource_Fell;
 
     // Update is called once per frame
     void Update()
@@ -26,11 +28,25 @@ public class Duck : MonoBehaviour
 
             //Jumpの音
             audioSource_Jump.PlayOneShot(audioSource_Jump.clip);
-        }        
+        }
+
+        // 落ちたらゲームオーバー
+        if (transform.position.y < -2.5f)
+        {
+
+            //落ちた音
+            audioSource_Fell.PlayOneShot(audioSource_Fell.clip);
+
+            // ゲームオーバー
+            GameManager.isGameOver = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //衝突の音
+        audioSource_Clash.PlayOneShot(audioSource_Clash.clip);
+
         // ゲームオーバー
         GameManager.isGameOver = true;
     }
